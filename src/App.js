@@ -1,26 +1,53 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/header/header.component';
+import BoardPage from './components/boardPage/boardPage.component';
+import { MDBRow, MDBCol } from "mdbreact";
+import BoardHeader from './components/boardHeader/boardHeader.component';
+import SideMenuModal from './components/sideMenuModal/sideMenuModal.component';
 
-function App() {
+
+class App extends React.Component{
+  constructor(props){
+    super(props)
+    this.state={
+       IsSideMenuVisible : false,
+       modal: false
+    }
+    // this.handleClick = this.handleClick.bind(this);
+    this.Handletoggle = this.Handletoggle.bind(this);
+  }
+  
+  // handleClick(){
+  //    this.setState(state => ({
+  //      IsSideMenuVisible : !state.IsSideMenuVisible
+  //     }));
+  // }
+  
+  Handletoggle(){
+    this.setState(state => ({
+      modal: !state.modal
+    }));
+  }
+
+  render(){
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      <div style={{marginTop:"4rem"}}>
+        <BoardHeader Handletoggle={()=>this.Handletoggle}/>
+          <SideMenuModal isOpen={this.state.modal} Handletoggle={()=>this.Handletoggle}/>
+          <MDBRow>
+            <MDBCol md="12"><BoardPage/></MDBCol>
+          </MDBRow>
+          
+        
+     
+      </div>
+      
     </div>
   );
+  }
 }
 
 export default App;
