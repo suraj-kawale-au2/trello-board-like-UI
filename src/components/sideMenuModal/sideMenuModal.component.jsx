@@ -4,13 +4,11 @@ import './sideMenuModal.styles.css';
 
 
 class SideMenuModal extends Component {
-    constructor(props){
-        super(props)
-    }
+    
 
-render() {
-    console.log(this.props)
-  return (
+    render() {
+        console.log(this.props)
+    return (
 
         <MDBModal isOpen={this.props.isOpen} toggle={this.props.Handletoggle()} backdrop={false} position="right">
           <MDBModalHeader toggle={this.props.Handletoggle()}>Menu</MDBModalHeader>

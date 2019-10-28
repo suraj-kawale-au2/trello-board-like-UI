@@ -36,12 +36,14 @@ class App extends React.Component{
       <Header/>
       <div style={{marginTop:"4rem"}}>
         <BoardHeader Handletoggle={()=>this.Handletoggle}/>
-          <SideMenuModal isOpen={this.state.modal} Handletoggle={()=>this.Handletoggle}/>
+          
           <MDBRow>
+
             <MDBCol md="12"><BoardPage/></MDBCol>
+            
           </MDBRow>
           
-        
+          <SideMenuModal isOpen={this.state.modal} Handletoggle={()=>this.Handletoggle}/>
      
       </div>
       
